@@ -1,8 +1,4 @@
-from src.headHunterAPI import HeadHunterAPI
-from src.vacancy import Vacancy
+from src.GUI import user_interaction
 
-searcher = HeadHunterAPI()
-vacancies = searcher.get_vacancies('Python')
-vacancy_list = Vacancy.cast_to_object_list(vacancies)
-for item in vacancy_list:
-    print(item)
+if __name__ == '__main__': # pragma: no cover
+    user_interaction()
