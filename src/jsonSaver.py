@@ -25,8 +25,8 @@ class JsonSaver(FileSaver):
         if isinstance(data, int):
             return
         data_prepared = cast_obj_to_list(data)
-        with open(self.__file_name, "w", encoding="utf-8"):
-            json.dumps(data_prepared)
+        with open(self.__file_name, "w", encoding="utf-8") as f:
+            json.dump(data_prepared, f)
 
     def update(self, new_data: Vacancy) -> None:
         """Добавление вакансии или обновление вакансии с таким же id"""

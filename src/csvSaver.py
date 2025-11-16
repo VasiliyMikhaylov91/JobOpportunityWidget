@@ -19,7 +19,7 @@ class CSVSaver(FileSaver):
             return
         prepared_data = cast_obj_to_list(data)
         with open(self.__file_name, "w", newline="") as f:
-            fieldnames = ["item_number", "name", "linq", "salary_from", "salary_to"]
+            fieldnames = ["id", "name", "linq", "salary_from", "salary_to"]
             writer = csv.DictWriter(f, fieldnames=fieldnames)
 
             writer.writeheader()
@@ -29,9 +29,19 @@ class CSVSaver(FileSaver):
     def get(self) -> list[Vacancy]:
         """Получение вакансий из файла"""
 
-        with open(self.__file_name, "w", newline="") as f:
+        with open(self.__file_name, "r", newline="") as f:
             reader = csv.DictReader(f)
-            data = [row for row in reader]
+            data_read = [row for row in reader]
+        data = [
+            {
+                "id": int(x["id"]),
+                "name": x["name"],
+                "linq": x["linq"],
+                "salary_from": int(x["salary_from"]),
+                "salary_to": int(x["salary_to"]),
+            }
+            for x in data_read
+        ]
         return Vacancy.cast_to_object_list(data)
 
     def update(self, new_data: Vacancy) -> None:

@@ -4,7 +4,7 @@ from typing import Union
 from src.vacancy import Vacancy
 
 
-class FileSaver(ABC):
+class FileSaver(ABC):  # pragma: no cover
     """Работа с вакансиями сохраненными в файле"""
 
     @abstractmethod

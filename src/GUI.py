@@ -34,8 +34,8 @@ def file_script(file_type: str) -> None:  # pragma: no cover
         vacancy_salary_from = int(input("Зарплата от -> "))
         vacancy_salary_to = int(input("Зарплата до -> "))
         saver.update(
-            Vacancy(vacancy_id, vacancy_name, vacancy_linq, vacancy_salary_from, vacancy_salary_to)
-        )  # type: ignore
+            Vacancy(vacancy_id, vacancy_name, vacancy_linq, vacancy_salary_from, vacancy_salary_to)  # type: ignore
+        )
     elif option == "2":
         vacancy_id = int(input("Укажите id для удаления -> "))
         saver.delete(vacancy_id)  # type: ignore
