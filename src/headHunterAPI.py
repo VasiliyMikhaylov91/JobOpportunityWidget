@@ -41,8 +41,16 @@ class HeadHunterAPI(JobAPI):
                 "id": int(x["id"]),
                 "name": x["name"],
                 "linq": x["alternate_url"],
-                "salary_from": int(x["salary"]["from"]) if x["salary"] and "from" in x["salary"] else None,
-                "salary_to": int(x["salary"]["to"]) if x["salary"] and "to" in x["salary"] else None,
+                "salary_from": (
+                    int(x["salary"]["from"])
+                    if x["salary"] and "from" in x["salary"] and isinstance(x["salary"]["from"], int | str)
+                    else None
+                ),
+                "salary_to": (
+                    int(x["salary"]["to"])
+                    if x["salary"] and "to" in x["salary"] and isinstance(x["salary"]["to"], int | str)
+                    else None
+                ),
             }
             for x in vacancies
         ]

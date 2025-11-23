@@ -12,12 +12,12 @@ def hh_script() -> None:  # pragma: no cover
         print(vacancy)
     save_to_file = input("Сохранить в файл? 1 - json файл; 2 - csv файл; 3 - не сохранять -> ")
     if save_to_file == "1" or save_to_file == "2":
-        saver = JsonSaver() if save_to_file == "1" else CSVSaver
+        saver = JsonSaver() if save_to_file == "1" else CSVSaver()
         saver.save(vacancies)  # type: ignore
 
 
 def file_script(file_type: str) -> None:  # pragma: no cover
-    saver = JsonSaver() if file_type == "json" else CSVSaver
+    saver = JsonSaver() if file_type == "json" else CSVSaver()
     vacancies = saver.get()  # type: ignore
     for vacancy in vacancies:
         print(vacancy)

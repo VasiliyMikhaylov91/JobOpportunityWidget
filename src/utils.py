@@ -1,7 +1,6 @@
-from typing import Any, Union
+from typing import Union
 
 from src.vacancy import Vacancy
-
 
 # def search_hh_id(collection: list[dict], collection_name: str, name: str) -> Any | None:
 #     """Рекурсивный поиск id по названию в справочнике collection. collection_name имя вложенных списков"""

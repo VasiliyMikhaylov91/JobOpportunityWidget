@@ -37,8 +37,12 @@ class CSVSaver(FileSaver):
                 "id": int(x["id"]),
                 "name": x["name"],
                 "linq": x["linq"],
-                "salary_from": int(x["salary_from"]),
-                "salary_to": int(x["salary_to"]),
+                "salary_from": (
+                    int(x["salary_from"]) if x["salary_from"] and isinstance(x["salary_from"], int | str) else None
+                ),
+                "salary_to": (
+                    int(x["salary_to"]) if x["salary_to"] and isinstance(x["salary_from"], int | str) else None
+                ),
             }
             for x in data_read
         ]

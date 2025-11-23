@@ -37,12 +37,8 @@ def test_delete_data(t_vacancies: list[Vacancy]) -> None:
 def test_cast_obj_to_list(t_vacancies: list[Vacancy]) -> None:
     """Тестирование преобразования списка вакансий в список словарей"""
 
-    assert (
-        cast_obj_to_list(t_vacancies)
-        == [
-            {"id": 1, "linq": "https://www.example.org/one", "name": "one", "salary_from": 1, "salary_to": 2},
-            {"id": 2, "linq": "https://www.example.org/two", "name": "two", "salary_from": 2, "salary_to": 3},
-            {"id": 3, "linq": "https://www.example.org/three", "name": "three", "salary_from": 3, "salary_to": 4},
-        ]
-        != [{}]
-    )
+    assert cast_obj_to_list(t_vacancies) == [
+        {"id": 1, "linq": "https://www.example.org/one", "name": "one", "salary_from": 1, "salary_to": 2},
+        {"id": 2, "linq": "https://www.example.org/two", "name": "two", "salary_from": 2, "salary_to": 3},
+        {"id": 3, "linq": "https://www.example.org/three", "name": "three", "salary_from": 3, "salary_to": 4},
+    ]
